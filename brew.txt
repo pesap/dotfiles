@@ -1,0 +1,11 @@
+fzf
+git
+hub
+node
+ripgrep
+starship
+tree
+tmux
+zsh
+zsh-completions
+zsh-syntax-highlighting

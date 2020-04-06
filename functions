@@ -1,0 +1,105 @@
+#!/bin/bash
+# What did i do today?
+# from https://theptrk.com/2018/07/11/did-txt-file/
+export MDV_THEME=729.8953
+export DID_PATH=~/notes/did
+
+brew_configure (){
+    local brew_url="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+    echo "+ Installing Homebrew"
+    # Install Homebrew!
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+    # Make sure latest Homebrew is sued
+    brew update
+}
+
+formula_installed() {
+    echo "| Installing brew packages"
+    brew_list=$(brew list)
+    for f in $(< brew.txt);do
+#+         grep -qf $brew_list $f && echo $f
+    done
+     #[[ "$(brew list | grep -q -f brew.txt)" ]] && echo "All modules found"
+     #if [
+}
+
+create_symlink () {
+    for file in ${FILES[@]};do
+        echo "| $file"
+        mv $HOME/.$file $HOME &> /dev/null
+        ln -s $directory/$file $HOME/.$file &> /dev/null
+    done
+    
+}
+
+function did(){
+    export LC_ALL=C
+    mkdir -p ${DID_PATH}
+    if [ ! -f ${DID_PATH}/$(date +%Y-%V).md ]; then
+        echo -e "# Week $(date +"%V (%B %Y)") \n\n## $(date +"%A %d-%m-%y")" > ${DID_PATH}/$(date +%Y-%V).md
+    fi
+    FILE_EDITION_DATE="$(stat -f "%Sm" -t "%Y-%m-%d" ${DID_PATH}/$(date +%Y-%V).md)"
+    NOW="$(date +"%Y-%m-%d")"
+    if [ ${FILE_EDITION_DATE:0:10} != ${NOW} ]
+    then
+        echo -e "\n## $(date +"%A %Y-%m-%d")\n" >> ${DID_PATH}/$(date +%Y-%V).md
+    fi
+    unset LC_ALL
+    vim +'normal Go' ${DID_PATH}/$(date +%Y-%V).md
+}
+
+
+function didv(){
+    if [ $1 ]
+    then
+         mdv ${DID_PATH}/${1}.md
+    else
+        mkdir -p ${DID_PATH}
+        if [ ! -f ${DID_PATH}/$(date +%Y-%V).md ]; then
+            LC_ALL=C echo "# Week $(date +"%V (%B %Y)") \n\n## $(date +"%A %Y-%m-%d")" > ${DID_PATH}/$(date +%Y-%V).md
+        fi
+        mdv ${DID_PATH}/$(date +%Y-%V).md
+    fi
+}
+
+function week2Month(){
+    export LC_ALL=C
+    year=$(echo $1 | cut -f1 -d-)
+    week=$(echo $1 | cut -f2 -d-)
+    local dayofweek=1 # 1 for monday
+    date -j -f "%Y-%W" $1 +"%B %Y"     
+    unset LC_ALL
+    
+}
+
+function didl(){
+    for file in `ls ${DID_PATH}/*.md | sort -Vr`; do
+        filenameRaw="$(basename ${file})"
+        filename="${filenameRaw%.*}"
+        echo "${filename} ($(week2Month ${filename}))"
+    done
+}
+
+
+function dids(){
+export LC_ALL=C
+if [ $1 ]
+then
+for file in `ls ${DID_PATH}/*.md | sort -Vr`; do
+NB_OCCURENCE="$(grep -c ${1} ${file})"
+if [ ${NB_OCCURENCE} != "0" ]
+then
+filenameRaw="$(basename ${file})"
+filename="${filenameRaw%.*}"
+echo -e "\n\e[32m=> ${filename} ($(week2Month ${filename}), ${NB_OCCURENCE} results) \e[0m" && grep -n -B 1 ${1} ${file}
+fi
+done
+else
+echo "You must add a something to search..."
+fi
+unset LC_ALL
+}
+
+
+

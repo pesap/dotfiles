@@ -1,0 +1,24 @@
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Markdown configuration
+"au! BufRead,BufNewFile *.markdown,*.md set filetype=md
+"
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+augroup pencil
+  autocmd!
+  autocmd FileType mkd call pencil#init()
+                            \ | setl fdl=4 tw=79 
+                            \ | setl fdo+=search colorcolumn=80
+  autocmd FileType text         call pencil#init({'wrap': 'hard'})
+augroup END
+
+let g:pencil#textwidth = 79
+
+" Python command
+map <leader>1 <Esc>:w<CR>:!clear;python3 %<CR>
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']

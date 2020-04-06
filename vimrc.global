@@ -1,0 +1,62 @@
+"""""""""""""""""""""""""""""
+" General VIM configuration
+"""""""""""""""""""""""""""""
+
+" Encoding configuration for files
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set bomb
+set binary
+set ttyfast
+set fileformats=unix,dos,mac
+
+" General editor configuration
+set number                     " Show line numbers
+set relativenumber             " Relative numbers
+set linebreak                  " Break lines at word (requires Wrap lines)
+set textwidth=79               " Line wrap (number of cols)
+set showmatch                  " Highlight matching brace
+set noerrorbells               " No annoying sounds
+set novisualbell               " No visual error bell
+set foldcolumn=1               " Add a bit extra margin to the left
+ 
+set hlsearch                   " Highlight all search results
+set smartcase                  " Enable smart-case search
+set ignorecase                 " Always case-insensitive
+set incsearch                  " Searches for strings incrementally
+ 
+set autoindent                 " Auto-indent new lines
+set expandtab                  " Use spaces instead of tabs
+set shiftwidth=4               " Number of auto-indent spaces
+set smartindent                " Enable smart-indent
+set smarttab                   " Enable smart-tabs
+set softtabstop=4              " Number of spaces per Tab
+ 
+set magic                      " For regular expression
+set ruler                      " Show row and column ruler information
+set wildmenu                   " Autocomplete for command menu
+set lazyredraw                 " Redraw only if needed
+set undolevels=1000            " Number of undo levels
+set backspace=indent,eol,start " Backspace behaviour
+set autoread                   " Update changes from outside
+set backspace=2                " Makes backspace behave normal for many programs
+set splitbelow                 " More natural split
+set splitright                 " More natural split
+set nobackup                   " Do not create backup file
+set noswapfile                 " Do not create swap file
+set colorcolumn=100            " Color column
+
+" Copy and paste to system clipboard
+if has('macunix')
+  " pbcopy for OSX copy/paste
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
+endif
+
+" Set system clipboard
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+else
+  set clipboard=unnamed
+endif

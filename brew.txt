@@ -2,10 +2,12 @@ fzf
 git
 hub
 node
+pandoc-citeproc
+pandoc-crossref
 ripgrep
 starship
-tree
 tmux
+tree
 zsh
 zsh-completions
 zsh-syntax-highlighting

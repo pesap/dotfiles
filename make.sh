@@ -14,11 +14,9 @@ echo "Starting dotfiles configuration!\n"
 
 # Internal variables
 directory=~/dotfiles
-old_dir="~/dotfiles_old"
-
-mkdir -p $old_dir
 
 FILES=(
+    aliases
     bashrc
     config
     functions
@@ -43,7 +41,8 @@ if [ "$(uname)" = "Darwin" ]; then
     type -a brew > /dev/null  || brew_configure
 
     # Check that packages are installed
-    formula_installed || xargs brew install < brew.txt  &> /dev/null
+    # formula_installed || xargs brew install < brew.txt  &> /dev/null
+    xargs brew install < brew.txt
 
 else
     echo "System not recognized yet"

@@ -29,19 +29,18 @@ else
   Plug 'junegunn/fzf.vim'
 endif
 
-" Useful tools
-" TODO: Clean what I do not use anymore
-
-Plug 'kien/ctrlp.vim'                  " Good search command
-Plug 'junegunn/vim-easy-align'         " Text alignment
-Plug 'scrooloose/nerdcommenter'        " Easy comments
-Plug 'tpope/vim-fugitive'              " Git fugitive bar
-Plug 'tpope/vim-surround'              " Adding surround to variables
-Plug 'tpope/vim-repeat'                " Better repeat
-Plug 'python/black', {'for': 'python'} " Python formating
+Plug 'kien/ctrlp.vim'               " Good search command
+Plug 'junegunn/vim-easy-align'      " Text alignment
+Plug 'scrooloose/nerdcommenter'     " Easy comments
+Plug 'tpope/vim-fugitive'           " Git fugitive bar
+Plug 'tpope/vim-surround'           " Adding surround to variables
+Plug 'tpope/vim-repeat'             " Better repeat
+Plug 'psf/black', {'for': 'python'} " Python black formatting
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/goyo.vim'
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -67,11 +66,11 @@ filetype plugin indent on
 syntax enable
 
 " Set colors
-set t_Co=256
-set t_ut=
 set background=dark
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set t_ut=
+set t_Co=256
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
 " Set true colorscheme"

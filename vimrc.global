@@ -14,8 +14,9 @@ set fileformats=unix,dos,mac
 " General editor configuration
 set number                     " Show line numbers
 set relativenumber             " Relative numbers
+set wrap                       " Wrap lines at textwidth
 set linebreak                  " Break lines at word (requires Wrap lines)
-set textwidth=79               " Line wrap (number of cols)
+set textwidth=90               " Line wrap (number of cols)
 set showmatch                  " Highlight matching brace
 set noerrorbells               " No annoying sounds
 set novisualbell               " No visual error bell
@@ -25,6 +26,7 @@ set hlsearch                   " Highlight all search results
 set smartcase                  " Enable smart-case search
 set ignorecase                 " Always case-insensitive
 set incsearch                  " Searches for strings incrementally
+set noshowmode " Dont show mode
  
 set autoindent                 " Auto-indent new lines
 set expandtab                  " Use spaces instead of tabs

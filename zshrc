@@ -39,7 +39,7 @@ source ~/.functions
 #================================================================================
 
 # Add commonly used folders to $PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 
 export GPG_TTY=$(tty)                          # Krypt.co configuration
@@ -57,6 +57,9 @@ export TERM=xterm-256color                     # Use fuil color terminal
 # in this part. Include a comment at the end with the explanation.
 #
 #================================================================================
+
+# quick fix for TMUX
+[[ -z $TMUX ]] || conda deactivate; conda activate base
 
 # Prompt configuration
 eval "$(starship init zsh)"

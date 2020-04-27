@@ -64,3 +64,6 @@ export TERM=xterm-256color                     # Use fuil color terminal
 # Prompt configuration
 eval "$(starship init zsh)"
 
+# LaTeX
+export PATH="/Library/TeX/texbin/:$PATH"
+

@@ -16,6 +16,7 @@ plugins=(
     pip
     python
     tmux
+    vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -58,8 +59,6 @@ export TERM=xterm-256color                     # Use fuil color terminal
 #
 #================================================================================
 
-# quick fix for TMUX
-[[ -z $TMUX ]] || conda deactivate; conda activate base
 
 # Prompt configuration
 eval "$(starship init zsh)"
@@ -83,3 +82,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# quick fix for TMUX
+[[ -z $TMUX ]] || conda deactivate; conda activate base

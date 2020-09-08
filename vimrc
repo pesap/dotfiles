@@ -29,18 +29,20 @@ else
   Plug 'junegunn/fzf.vim'
 endif
 
-Plug 'kien/ctrlp.vim'                   " Good search command
-Plug 'junegunn/vim-easy-align'          " Text alignment
-Plug 'scrooloose/nerdcommenter'         " Easy comments
-Plug 'tpope/vim-fugitive'               " Git fugitive bar
-Plug 'tpope/vim-surround'               " Adding surround to variables
-Plug 'tpope/vim-repeat'                 " Better repeat
-Plug 'psf/black', {'for': 'python', 'branch': 'stable' }     " Python black formatting
+Plug 'kien/ctrlp.vim'                                    " Good search command
+Plug 'junegunn/vim-easy-align'                           " Text alignment
+Plug 'sheerun/vim-polyglot'                              " One to rulethem all
+Plug 'scrooloose/nerdcommenter'                          " Easy comments
+Plug 'tpope/vim-fugitive'                                " Git fugitive bar
+Plug 'tpope/vim-surround'                                " Adding surround to variables
+Plug 'tpope/vim-repeat'                                  " Better repeat
+Plug 'psf/black', {'for': 'python', 'branch': 'stable' } " Python black formatting
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'lervag/vimtex'                                     " LaTeX for vim
 
 call plug#end()
 
@@ -98,3 +100,4 @@ augroup END
 
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_frontmatter = 1
+let g:vimtex_view_method='skim'

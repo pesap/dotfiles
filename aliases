@@ -2,7 +2,7 @@ alias zshconfig="vim ~/.zshrc"
 #alias ls='ll -G'
 alias rsyncgit="rsync -avzh --filter=':- .gitignore'"
 alias rsync="rsync -avz --progress -h"
-alias c='cd ~/codes'
+alias c='cd ~/Dev'
 alias n='cd ~/notes'
 alias tmp='cd ~/tmp'
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
@@ -12,3 +12,4 @@ alias git=hub
 alias cronjobs='cd ~/cronjobs/'
 ctags=/usr/local/bin/ctags
 alias tmux='tmux -u'
+alias skhdrc="vim ~/.config/skhd/skhdrc"

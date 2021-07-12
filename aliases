@@ -1,15 +1,16 @@
-alias zshconfig="vim ~/.zshrc"
-#alias ls='ll -G'
-alias rsyncgit="rsync -avzh --filter=':- .gitignore'"
-alias rsync="rsync -avz --progress -h"
+# General aliases
 alias c='cd ~/Dev'
 alias n='cd ~/notes'
 alias tmp='cd ~/tmp'
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-alias piprun="pipenv run"
 alias vimrc="vim ~/.vimrc"
-alias git=hub
 alias cronjobs='cd ~/cronjobs/'
+#alias tmux='tmux -u'
+alias rsyncgit="rsync -avzh --filter=':- .gitignore'"
+alias rsync="rsync -avz --progress -h"
+alias zshconfig="vim ~/.zshrc"
+
+# macOS specific
+#alias ls='ll -G'
+#alias git=hub
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 ctags=/usr/local/bin/ctags
-alias tmux='tmux -u'
-alias skhdrc="vim ~/.config/skhd/skhdrc"

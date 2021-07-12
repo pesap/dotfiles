@@ -5,6 +5,11 @@
 # Last update: 2020-04-04
 #
 # This is my personal zshrc configuration. Use at your own risk!
+#
+if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+fi
 
 # Specify ZSH location from oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
@@ -84,3 +89,5 @@ unset __conda_setup
 
 # quick fix for TMUX
 [[ -z $TMUX ]] || conda deactivate; conda activate base
+
+export PATH="$HOME/.poetry/bin:$PATH"

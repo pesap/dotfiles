@@ -22,12 +22,8 @@ endif
 call plug#begin(expand('~/.vim/plugged'))
 
 " FZF configuration
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'kien/ctrlp.vim'                                    " Good search command
 Plug 'junegunn/vim-easy-align'                           " Text alignment
@@ -38,11 +34,12 @@ Plug 'tpope/vim-surround'                                " Adding surround to va
 Plug 'tpope/vim-repeat'                                  " Better repeat
 Plug 'psf/black', {'for': 'python', 'branch': 'stable' } " Python black formatting
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'lervag/vimtex'                                     " LaTeX for vim
+"Plug 'lervag/vimtex'                                     " LaTeX for vim
 
 call plug#end()
 
@@ -68,7 +65,6 @@ filetype plugin indent on
 syntax enable
 
 " Set colors
-set background=dark
 set t_ut=
 set t_Co=256
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -81,9 +77,12 @@ if (has("termguicolors"))
 endif
 
 " Good colorscheme
-colorscheme solarized8_flat
+colorscheme material
+set background=dark " for the dark version
+let g:material_terminal_italics = 1
+" set background=light " for the light versionolorscheme solarized8_flat
 
-let g:material_theme_style = 'dark'
+"let g:material_theme_style = 'dark'
 let g:indentLine_char = '¦'
 let g:indentLine_color_gui = "#073642"
 
@@ -101,3 +100,6 @@ augroup END
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_frontmatter = 1
 let g:vimtex_view_method='skim'
+
+" Fix clipboard problem
+set clipboard=unnamed

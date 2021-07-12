@@ -9,11 +9,11 @@ style = "dimmed green"
 pyenv_version_name = false
 
 [username]
-show_always = true
+show_always = false
 style_user = "bold #EFA700"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = "bold purple"
 
 [git_branch]

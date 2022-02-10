@@ -2,7 +2,7 @@
 #
 # Written by pesap
 #
-# Last update: 2020-04-04
+# Last update: 2022-02-10
 #
 # This is my personal zshrc configuration. Use at your own risk!
 #
@@ -70,24 +70,3 @@ eval "$(starship init zsh)"
 
 # LaTeX
 export PATH="/Library/TeX/texbin/:$PATH"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/pesap/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/pesap/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/pesap/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/pesap/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# quick fix for TMUX
-[[ -z $TMUX ]] || conda deactivate; conda activate base
-
-export PATH="$HOME/.poetry/bin:$PATH"

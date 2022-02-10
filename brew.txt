@@ -2,8 +2,6 @@ fzf
 git
 hub
 node
-pandoc-citeproc
-pandoc-crossref
 ripgrep
 starship
 tmux
